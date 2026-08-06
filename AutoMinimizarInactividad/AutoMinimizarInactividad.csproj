@@ -12,6 +12,12 @@
     <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
     <Version>0.5.0</Version>
     <Platforms>AnyCPU</Platforms>
+    <!-- Only take effect when publishing with PublishSingleFile=true, but are
+         required in that case: without them, WPF's native window-subclassing
+         (used by the tray icon) throws DllNotFoundException at startup
+         because its native support files never get extracted from the bundle. -->
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
   </PropertyGroup>
 
   <ItemGroup>
