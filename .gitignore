@@ -1,0 +1,25 @@
+# Build output
+bin/
+obj/
+publish/
+publish_tmp/
+publish_fx/
+publish_sc/
+
+# Packaged EXEs are distributed as GitHub Release assets, not repo content
+Releases/
+
+# Visual Studio / Rider
+.vs/
+.idea/
+*.user
+*.suo
+
+# Runtime-generated files
+crash.txt
+
+# User settings (lives only in %LOCALAPPDATA%, never in the repo)
+settings.json
+
+# Claude Code local project config
+.claude/
