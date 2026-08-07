@@ -36,7 +36,8 @@ Doble clic en el icono de la bandeja (o clic derecho → Ajustes):
 ### Instalación
 
 1. Ve a la sección [Releases](../../releases) y descarga el `.exe` de la última versión.
-2. Ejecútalo — no hace falta instalar nada más. Hay dos variantes: una autocontenida (no necesita .NET instalado) y otra más ligera que requiere el .NET Desktop Runtime.
+2. Muévelo a una carpeta permanente antes de ejecutarlo por primera vez (no lo dejes en Descargas). El arranque automático con Windows registra la ruta desde la que lo ejecutas — si luego borras o mueves ese archivo, dejará de arrancar solo.
+3. Ejecútalo — no hace falta instalar nada más. Hay dos variantes: una autocontenida (no necesita .NET instalado) y otra más ligera que requiere el .NET Desktop Runtime.
 
 ### Notas técnicas
 
