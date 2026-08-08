@@ -43,3 +43,11 @@ Doble clic en el icono de la bandeja (o clic derecho → Ajustes):
 
 - El icono de WhatsApp de la lista de aplicaciones se resuelve en caliente desde la propia instalación de WhatsApp del usuario (vía la API de iconos de apps empaquetadas de Windows), no se descarga de ningún sitio.
 - La detección de inactividad usa el reloj de última entrada de Windows (`GetLastInputInfo`), sin hooks de teclado/ratón.
+- El arranque con Windows usa la clave del registro `HKCU\...\CurrentVersion\Run` (no una Tarea Programada: crear tareas mediante `schtasks` requiere permisos que un equipo gestionado por una empresa puede denegar a usuarios no administradores).
+
+### Si "Iniciar con Windows" no arranca la app
+
+Si la casilla está activada pero la app no aparece al iniciar sesión:
+
+1. Comprueba que sigue apareciendo en Administrador de tareas → pestaña Inicio, como Habilitada.
+2. Si el equipo está gestionado por una empresa (verás cosas como Cloudflare WARP, Microsoft Defender for Endpoint u otros agentes corporativos instalados), es posible que una política central esté filtrando qué puede autoarrancar, incluso con la entrada del registro correctamente creada. En ese caso no es algo que la app pueda controlar — habría que consultarlo con el departamento de TI.
