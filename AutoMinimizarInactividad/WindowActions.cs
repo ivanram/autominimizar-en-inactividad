@@ -106,6 +106,53 @@ internal static class WindowActions
         return string.IsNullOrWhiteSpace(value) ? null : value;
     }
 
+    private const ushort VK_MEDIA_PLAY_PAUSE = 0xB3;
+    private const uint INPUT_KEYBOARD = 1;
+    private const uint KEYEVENTF_KEYUP = 0x0002;
+
+    [StructLayout(LayoutKind.Sequential)]
+    private struct KEYBDINPUT
+    {
+        public ushort wVk;
+        public ushort wScan;
+        public uint dwFlags;
+        public uint time;
+        public IntPtr dwExtraInfo;
+    }
+
+    [StructLayout(LayoutKind.Explicit)]
+    private struct InputUnion
+    {
+        [FieldOffset(0)] public KEYBDINPUT ki;
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    private struct INPUT
+    {
+        public uint type;
+        public InputUnion U;
+    }
+
+    [DllImport("user32.dll")]
+    private static extern uint SendInput(uint nInputs, INPUT[] pInputs, int cbSize);
+
+    /// <summary>
+    /// Sends the system media play/pause key — the same signal a keyboard's
+    /// media key sends, routed by Windows to whatever app currently owns
+    /// media playback. It's a toggle (there's no OS-wide "pause only"
+    /// command without querying each app's own playback state), so this
+    /// pauses if something is playing and does nothing meaningful otherwise.
+    /// </summary>
+    public static void PauseMedia()
+    {
+        var inputs = new[]
+        {
+            new INPUT { type = INPUT_KEYBOARD, U = new InputUnion { ki = new KEYBDINPUT { wVk = VK_MEDIA_PLAY_PAUSE } } },
+            new INPUT { type = INPUT_KEYBOARD, U = new InputUnion { ki = new KEYBDINPUT { wVk = VK_MEDIA_PLAY_PAUSE, dwFlags = KEYEVENTF_KEYUP } } },
+        };
+        SendInput((uint)inputs.Length, inputs, Marshal.SizeOf<INPUT>());
+    }
+
     /// <summary>Lists distinct processes that currently own a visible, top-level, non-tool window — candidates to add to the target list.</summary>
     public static List<RunningAppInfo> ListRunningApps()
     {

@@ -31,7 +31,7 @@ Doble clic en el icono de la bandeja (o clic derecho → Ajustes):
 - **Tiempo de inactividad**: en segundos, desde 5 en adelante (el slider llega a 300 por comodidad, pero puedes escribir el número que quieras).
 - **Aplicaciones a minimizar**: lista de apps abiertas, con botón para actualizarla. Marca las que quieras auto-minimizar — WhatsApp viene marcada por defecto.
 - **Minimizar todo**: opción especial dentro de la misma lista — en vez de apps concretas, muestra el escritorio (como el rincón de "Mostrar escritorio" de la barra de tareas). Al marcarla, el resto de la lista se desactiva visualmente pero no pierde tu selección: si la desmarcas, tus apps siguen elegidas.
-- **Ajustes adicionales**: iniciar automáticamente con Windows (activado por defecto), y abrir también el salvapantallas de Windows tras minimizar.
+- **Ajustes adicionales**: iniciar automáticamente con Windows (activado por defecto), parar también la música/vídeo que esté sonando, y abrir también el salvapantallas de Windows tras minimizar.
 
 ### Instalación
 

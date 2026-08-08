@@ -49,6 +49,7 @@ public partial class SettingsWindow : Window
         SecondsSlider.Value = Math.Clamp(_settings.InactivitySeconds, SecondsSlider.Minimum, SecondsSlider.Maximum);
         ScreensaverCheckBox.IsChecked = _settings.AlsoOpenScreensaver;
         StartWithWindowsCheckBox.IsChecked = _settings.StartWithWindows;
+        PauseMediaCheckBox.IsChecked = _settings.AlsoPauseMedia;
 
         RefreshAppList();
     }
@@ -350,6 +351,7 @@ public partial class SettingsWindow : Window
         _settings.MinimizeAllInstead = CurrentMinimizeAllChecked();
         _settings.AlsoOpenScreensaver = ScreensaverCheckBox.IsChecked == true;
         _settings.StartWithWindows = StartWithWindowsCheckBox.IsChecked == true;
+        _settings.AlsoPauseMedia = PauseMediaCheckBox.IsChecked == true;
 
         CommitCheckedAppsFromCurrentList();
         _settings.Save();

@@ -35,6 +35,7 @@
             <TextBlock Text="Ajustes adicionales" FontWeight="Bold" FontSize="15" Margin="0,0,0,8" />
             <CheckBox x:Name="StartWithWindowsCheckBox" Content="Iniciar automáticamente con Windows" Margin="0,4" />
             <CheckBox x:Name="ScreensaverCheckBox" Content="Abrir también el salvapantallas de Windows" Margin="0,4" />
+            <CheckBox x:Name="PauseMediaCheckBox" Content="También parar la música" Margin="0,4" />
         </StackPanel>
 
         <!-- Lista de apps -->

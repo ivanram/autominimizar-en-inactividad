@@ -28,6 +28,9 @@ public sealed class AppSettings
 
     public bool StartWithWindows { get; set; } = true;
 
+    /// <summary>When true, additionally sends a media play/pause command after minimizing.</summary>
+    public bool AlsoPauseMedia { get; set; }
+
     private static string FilePath => Path.Combine(Paths.AppDataDir, "settings.json");
 
     public static AppSettings Load()

@@ -112,6 +112,9 @@ public sealed class TrayOrchestrator : IDisposable
         else
             WindowActions.MinimizeProcesses(_settings.TargetApps.Select(a => a.ProcessName));
 
+        if (_settings.AlsoPauseMedia)
+            WindowActions.PauseMedia();
+
         if (_settings.AlsoOpenScreensaver)
             WindowActions.LaunchScreensaver();
     }
